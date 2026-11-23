@@ -1,6 +1,22 @@
 name: Release artifacts
 
 on:
+  workflow_dispatch:
+    inputs:
+      source_sha:
+        required: true
+        type: string
+      version:
+        required: true
+        type: string
+      retention_days:
+        required: false
+        default: 3
+        type: number
+      macos_runner:
+        required: false
+        default: self-hosted
+        type: string
   workflow_call:
     inputs:
       source_sha:
